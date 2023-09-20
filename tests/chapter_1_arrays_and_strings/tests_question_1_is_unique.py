@@ -18,20 +18,20 @@ def test_duplicate_characters():
 
 
 def test_mixed_case_characters():
-    assert is_unique("AbCdEfG") is True
+    assert is_unique("AbCdEfG") == True
 
 
 def test_special_characters():
-    assert is_unique("!@#$%^&*") is True
+    assert is_unique("!@#$%^&*") == True
 
 
 def test_mixed_characters():
-    assert is_unique("abcdeabcde") is False
+    assert is_unique("abcdeabcde") == False
 
 
 def test_whitespace():
-    assert is_unique("  ") is False
+    assert is_unique("  ") == False
 
 
 def test_long_string():
-    assert is_unique("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") is True
+    assert is_unique("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == True
