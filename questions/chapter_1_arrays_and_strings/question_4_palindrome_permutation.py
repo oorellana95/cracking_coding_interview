@@ -1,7 +1,8 @@
 """
-Is Unique:
-Implement an algorithm to determine if a string has all unique characters.
-What if you cannot use additional data structures?
+Pindrome Permutation:
+Given a string, write a function to check if it is a permutation of a palindrome.
+A palindrome is a word or phrase that is the same forwards and backwards. A permutation
+is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
 """
 
 
@@ -21,7 +22,7 @@ def is_palindrome_permutation(s: str):
     return True if odd_count <= 1 else False
 
 
-def is_palindrome_permutation_chatgpe(s: str):
+def is_palindrome_permutation_2(s: str):
     char_count = {}
     for c in s:
         char_count[c] = char_count.get(c, 0) + 1
