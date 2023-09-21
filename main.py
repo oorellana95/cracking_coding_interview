@@ -1,7 +1,6 @@
 
-from questions.chapter_1_arrays_and_strings.question_5_one_away import one_away
+from questions.chapter_1_arrays_and_strings.question_6_string_compression import string_compression
 
 if __name__ == '__main__':
-    s1 = "hohohaa"
-    s2 = "hovhohaa"
-    print(one_away(s1,s2))
+    s1 = "mmmmamaaaaaa"
+    print(string_compression(s1))
