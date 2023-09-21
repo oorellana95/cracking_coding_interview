@@ -1,6 +1,5 @@
-from questions.chapter_1_arrays_and_strings.question_9_string_rotation import is_substring
+from questions.chapter_1_arrays_and_strings.question_8_zero_matrix import zero_matrix
 
 if __name__ == '__main__':
-    s1 = "waterbottle"
-    s2 = "erbottlewat"
-    print(is_substring(s1, s2))
+    matrix = [[0, 1, 2, 3, 4, 5, 6, 7, 8], [3, 1, 2, 3, 4, 5, 6, 7, 0], [0, 0, 0, 3, 4, 5, 6, 7, 0], [1, 2, 4, 3, 4, 5, 6, 7, 2]]
+    print(zero_matrix(matrix))
