@@ -37,20 +37,6 @@ class Node:
             node = node.next
         node.next = new_node
 
-    def delete_specific_node_by_index(self, index):
-        if index == 0:
-            return self.next
-
-        current_index = 1
-        node = self
-        while node.next is not None:
-            if current_index == index:
-                node.next = node.next.next
-                return self
-            node = node.next
-            current_index += 1
-        return self
-
 
 class LinkedList:
     def __init__(self, root=None):
