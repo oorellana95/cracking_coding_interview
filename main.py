@@ -1,6 +1,6 @@
-
-from questions.chapter_1_arrays_and_strings.question_6_string_compression import string_compression
+from questions.chapter_1_arrays_and_strings.question_9_string_rotation import is_substring
 
 if __name__ == '__main__':
-    s1 = "mmmmamaaaaaa"
-    print(string_compression(s1))
+    s1 = "waterbottle"
+    s2 = "erbottlewat"
+    print(is_substring(s1, s2))
