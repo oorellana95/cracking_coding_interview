@@ -8,6 +8,7 @@ def test_empty_list():
     result = remove_duplicates(linked_list)
     assert result == []
 
+
 def test_no_duplicates():
     # Test with a linked list without duplicates
     linked_list = LinkedList()
@@ -16,6 +17,7 @@ def test_no_duplicates():
     linked_list.append(3)
     result = remove_duplicates(linked_list)
     assert result.to_list() == [1, 2, 3]
+
 
 def test_duplicates_removed():
     # Test with a linked list containing duplicates

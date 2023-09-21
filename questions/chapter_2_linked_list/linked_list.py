@@ -54,7 +54,7 @@ class Node:
 
 class LinkedList:
     def __init__(self, root=None):
-        self.root = Node(root)
+        self.root = None if root is None else Node(root)
 
     def list_to_nodes(self, nodes: list):
         if self.root is None:
@@ -67,7 +67,7 @@ class LinkedList:
         return self.root
 
     def append(self, new_value):
-        if self.root.data is None:
+        if self.root is None:
             self.root = Node(new_value)
         else:
             self.root.append_to_tail(Node(new_value))

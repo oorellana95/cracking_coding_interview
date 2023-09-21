@@ -7,7 +7,7 @@ from questions.chapter_2_linked_list.linked_list import LinkedList
 
 
 def remove_duplicates(linked_list: LinkedList):
-    if linked_list.root.data is None:
+    if linked_list.root is None:
         return []
 
     node = linked_list.root
