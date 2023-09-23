@@ -3,14 +3,12 @@ from questions.chapter_2_linked_list.question_2_kth_to_last import kth_to_last
 
 
 def test_empty_list():
-    # Test with an empty linked list
     linked_list = LinkedList()
     result = kth_to_last(linked_list, 0)
     assert result == []
 
 
 def test_k_equals_zero():
-    # Test when k is zero
     linked_list = LinkedList()
     linked_list.append(1)
     linked_list.append(2)
@@ -20,7 +18,6 @@ def test_k_equals_zero():
 
 
 def test_k_within_bounds():
-    # Test when k is within bounds
     linked_list = LinkedList()
     linked_list.append(1)
     linked_list.append(2)
@@ -32,7 +29,6 @@ def test_k_within_bounds():
 
 
 def test_k_greater_than_length():
-    # Test when k is greater than the length of the list
     linked_list = LinkedList()
     linked_list.append(1)
     linked_list.append(2)
@@ -42,7 +38,6 @@ def test_k_greater_than_length():
 
 
 def test_negative_k():
-    # Test when k is negative
     linked_list = LinkedList()
     linked_list.append(1)
     linked_list.append(2)
