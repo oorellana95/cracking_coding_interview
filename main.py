@@ -1,7 +1,9 @@
-from questions.chapter_2_linked_list.linked_list import LinkedList
-from questions.chapter_2_linked_list.question_6_palindrome_linked_list import palindrome_linked_list
+from questions.chapter_3_stacks_and_queues.my_stack import MyStack
 
 if __name__ == '__main__':
+    my_stack = MyStack([1, 2, 3, 4, 5])
 
-    root = LinkedList().list_to_nodes([6, 8, 6, 6, 8, 6])
-    print(palindrome_linked_list(root))
+    my_stack.push(10)
+    print(my_stack.peek())
+    print(my_stack.peek())
+    print(my_stack)
