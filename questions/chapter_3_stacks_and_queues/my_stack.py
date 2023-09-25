@@ -15,7 +15,7 @@ class MyStack:
         items = []
         for item in self.data:
             items.append(str(item))
-        return "[" + " <- ".join(items)
+        return "MyStack: [" + " <- ".join(items)
 
     def push(self, item):
         self.data.append(item)
