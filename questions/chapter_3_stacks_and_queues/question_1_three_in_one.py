@@ -3,7 +3,6 @@ Three in One:
 Describe how you could use a single array to implement three stacks.
 
 I can create an object called MyStack. I used a single array to implement the required logic.
-
 """
 from questions.chapter_3_stacks_and_queues.my_stack import MyStack
 
