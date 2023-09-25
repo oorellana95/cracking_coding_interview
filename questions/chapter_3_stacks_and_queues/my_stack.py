@@ -7,6 +7,9 @@ class MyStack:
     def __init__(self, data=[]):
         self.data = data
 
+    def __len__(self):
+        return len(self.data)
+
     def __iter__(self):
         for item in self.data:
             yield item
@@ -20,8 +23,13 @@ class MyStack:
     def push(self, item):
         self.data.append(item)
 
-    def peek(self):
-        return self.data.pop()
+    def pop(self):
+        if self.data:
+            return self.data.pop()
+        return None
+
+    def pop_at(self, index):
+        return self.data.pop(index)
 
     def is_empty(self):
-        return self.data is None
+        return not self.data

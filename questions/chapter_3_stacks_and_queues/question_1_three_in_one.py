@@ -11,7 +11,7 @@ def using_my_stack():
     my_stack = MyStack([1, 2, 3, 4, 5])
 
     my_stack.push(10)
-    print(my_stack.peek())
-    print(my_stack.peek())
+    print(my_stack.pop())
+    print(my_stack.pop())
     print(my_stack.is_empty())
     print(my_stack)
