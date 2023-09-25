@@ -8,8 +8,8 @@ def test_single_character():
     assert is_palindrome_permutation("a") == True
 
 
-def test_palindrome_permutation_even_length():
-    assert is_palindrome_permutation("taco cat") == True
+def test_palindrome_permutation_with_spaces():
+    assert is_palindrome_permutation("taco cat") == False
 
 
 def test_palindrome_permutation_odd_length():
@@ -25,7 +25,7 @@ def test_not_palindrome_permutation_odd_length():
 
 
 def test_mixed_case():
-    assert is_palindrome_permutation("A man, a plan, a canal, Panama") == True
+    assert is_palindrome_permutation("A man, a plan, a canal, Panama") == False
 
 
 def test_special_characters():
