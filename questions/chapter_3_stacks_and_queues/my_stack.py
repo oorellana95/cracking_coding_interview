@@ -22,3 +22,6 @@ class MyStack:
 
     def peek(self):
         return self.data.pop()
+
+    def is_empty(self):
+        return self.data is None
