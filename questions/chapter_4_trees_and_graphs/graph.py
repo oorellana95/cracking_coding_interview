@@ -12,6 +12,20 @@ class Node:
         self.children: list[Node] = []
 
 
+class Graph:
+    def __init__(self, nodes=None):
+        self.nodes: Optional[list[Node]] = nodes
+
+    def add_edge(self, from_node: Node, to_node: Node):
+        if self.nodes is None:
+            self.nodes = []
+        if from_node not in self.nodes:
+            self.nodes.append(from_node)
+        if to_node not in self.nodes:
+            self.nodes.append(to_node)
+        from_node.children.append(to_node)
+
+
 def depth_first_search(root: Node):
     """ In depth-first search (DFS), we start at the root (or another arbitrarily selected node) and explore each
     branch completely before moving on to the next branch. That is, we go deep first (hence the name depthfirst
