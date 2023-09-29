@@ -1,22 +1,41 @@
-"""
-TreeNode
-"""
-from typing import Optional
+import pytest
+
+from questions.chapter_4_trees_and_graphs.binary_tree_node import BinaryTreeNode, in_order_transversal, \
+    pre_order_transversal, post_order_transversal
 
 
-class BinaryTreeNode:
-    def __init__(self, value: str):
-        self.value: str = value
-        self.left: Optional[BinaryTreeNode] = None
-        self.right: Optional[BinaryTreeNode] = None
+@pytest.fixture
+def sample_tree():
+    root = BinaryTreeNode("A")
+
+    root.left = BinaryTreeNode("B")
+    root.left.left = BinaryTreeNode("D")
+    root.left.right = BinaryTreeNode("E")
+
+    root.right = BinaryTreeNode("C")
+    root.right.left = BinaryTreeNode("F")
+    root.right.right = BinaryTreeNode("G")
+
+    return root
 
 
-def in_order_transversal(node: Optional[BinaryTreeNode]):
-    if node is not None:
-        in_order_transversal(node.left)
-        visit(node)
-        in_order_transversal(node.right)
+# Test cases for traversal functions
+@pytest.mark.parametrize("traversal_func, expected_output", [
+    (in_order_transversal, "D\nB\nE\nA\nF\nC\nG"),
+    (pre_order_transversal, "A\nB\nD\nE\nC\nF\nG"),
+    (post_order_transversal, "D\nE\nB\nF\nG\nC\nA"),
+])
+def test_tree_traversal(traversal_func, expected_output, sample_tree):
+    import io
+    from contextlib import redirect_stdout
+
+    with io.StringIO() as output:
+        with redirect_stdout(output):
+            traversal_func(sample_tree)
+        printed_output = output.getvalue()
+
+    assert printed_output.strip() == expected_output
 
 
-def visit(node: Optional[BinaryTreeNode]):
-    print(node.value)
+if __name__ == "__main__":
+    pytest.main()

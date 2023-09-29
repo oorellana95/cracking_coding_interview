@@ -1,27 +1,36 @@
-from tests.chapter_4_trees_and_graphs.test_binary_tree_node import BinaryTreeNode, in_order_transversal
+"""
+TreeNode
+"""
+from typing import Optional
 
 
-def test_in_order_transversal():
-    # Create a binary tree
-    root = BinaryTreeNode("A")
+class BinaryTreeNode:
+    def __init__(self, value: str):
+        self.value: str = value
+        self.left: Optional[BinaryTreeNode] = None
+        self.right: Optional[BinaryTreeNode] = None
 
-    root.left = BinaryTreeNode("B")
-    root.left.left = BinaryTreeNode("D")
-    root.left.right = BinaryTreeNode("E")
 
-    root.right = BinaryTreeNode("C")
-    root.right.left = BinaryTreeNode("F")
-    root.right.right = BinaryTreeNode("G")
+def in_order_transversal(node: Optional[BinaryTreeNode]):
+    if node is not None:
+        in_order_transversal(node.left)
+        visit(node)
+        in_order_transversal(node.right)
 
-    # Capture printed output to check in-order traversal
-    import io
-    from contextlib import redirect_stdout
 
-    with io.StringIO() as output:
-        with redirect_stdout(output):
-            in_order_transversal(root)
-        printed_output = output.getvalue()
+def pre_order_transversal(node: Optional[BinaryTreeNode]):
+    if node is not None:
+        visit(node)
+        pre_order_transversal(node.left)
+        pre_order_transversal(node.right)
 
-    # Check if the printed output matches the expected in-order traversal
-    assert printed_output.strip() == "D\nB\nE\nA\nF\nC\nG"
 
+def post_order_transversal(node: Optional[BinaryTreeNode]):
+    if node is not None:
+        post_order_transversal(node.left)
+        post_order_transversal(node.right)
+        visit(node)
+
+
+def visit(node: Optional[BinaryTreeNode]):
+    print(node.value)
