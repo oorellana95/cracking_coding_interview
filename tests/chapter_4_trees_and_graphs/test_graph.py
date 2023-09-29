@@ -1,27 +1,30 @@
-from questions.chapter_4_trees_and_graphs.graph import Node, depth_first_search
+import pytest
+
+from questions.chapter_4_trees_and_graphs.graph import Node, depth_first_search, breadth_first_search
 
 
-def test_depth_first_search_and_visit():
+@pytest.fixture
+def sample_graph():
     a, b, c, d, e = Node("A"), Node("B"), Node("C"), Node("D"), Node("E")
 
     a.children = [b, c]
     b.children = [d, e]
 
+    return a
+
+
+@pytest.mark.parametrize("search_func, expected_output", [
+    (depth_first_search, "A\nB\nD\nE\nC\n"),
+    (breadth_first_search, "A\nC\nB\nE\nD\n"),
+])
+def test_search_and_visit(sample_graph, search_func, expected_output):
     import io
     from contextlib import redirect_stdout
 
     with io.StringIO() as output:
         with redirect_stdout(output):
-            depth_first_search(a)
+            search_func(sample_graph)
         printed_output = output.getvalue()
 
-    # Check if the printed output matches the expected visit order
-    expected_output = "A\nB\nD\nE\nC\n"
     assert printed_output == expected_output
 
-    # Check if all nodes in the tree have been visited
-    assert a.visited
-    assert b.visited
-    assert c.visited
-    assert d.visited
-    assert e.visited

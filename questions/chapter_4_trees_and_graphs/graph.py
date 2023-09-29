@@ -1,13 +1,14 @@
 """
-TreeNode
+Graph
 """
 from typing import Optional
+from collections import deque
 
 
 class Node:
     def __init__(self, name: str):
         self.name: str = name
-        self.visited = False
+        self.marked = False
         self.children: list[Node] = []
 
 
@@ -18,11 +19,25 @@ def depth_first_search(root: Node):
 
     if root:
         visit(root)
-        root.visited = True
+        root.marked = True
         for node in root.children:
-            if not node.visited:
+            if not node.marked:
                 depth_first_search(node)
     return None
+
+
+def breadth_first_search(root: Node):
+    queue = deque()
+    root.marked = True
+    queue.append(root)
+
+    while queue:
+        node = queue.pop()
+        visit(node)
+        for n in node.children:
+            if n.marked is False:
+                n.marked = True
+                queue.append(n)
 
 
 def visit(node: Optional[Node]):
