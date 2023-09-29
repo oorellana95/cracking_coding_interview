@@ -27,6 +27,9 @@ def depth_first_search(root: Node):
 
 
 def breadth_first_search(root: Node):
+    """ In breadth-first search (BFS), we start at the root (or another arbitrarily selected node) and explore each
+    neighbor before going on to any of their children. That is, we go wide (hence breadth-first search) before
+    we go deep."""
     queue = deque()
     root.marked = True
     queue.append(root)
