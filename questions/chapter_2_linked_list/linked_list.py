@@ -42,6 +42,15 @@ class LinkedList:
     def __init__(self, root=None):
         self.root = None if root is None else Node(root)
 
+    def __repr__(self):
+        node = self.root
+        nodes = []
+        while node is not None:
+            nodes.append(str(node.data))
+            node = node.next
+        nodes.append("None")
+        return " -> ".join(nodes)
+
     def list_to_nodes(self, nodes: list):
         if self.root is None:
             self.root = Node(nodes.pop(0))
